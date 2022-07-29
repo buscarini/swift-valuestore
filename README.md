@@ -44,8 +44,8 @@ This way the compiler will ensure that all keys are unique. Now we need to creat
 ```swift
 extension ValueStore {
 	static func userDefaults(_ key: UserDefaultsKey) -> Self {
-		 .unsafeRawUserDefaults(key.rawValue)
-	 }
+		.unsafeRawUserDefaults(key.rawValue)
+	}
 }
 ```
 
@@ -56,7 +56,7 @@ extension ValueStore where Environment == NetworkEnvironment {
 	static func network(_ endpoint: String) -> Self {
 		.init(
 			load: { networkEnvironment in
-					try await get(...)
+				try await get(...)
 			},
 			save: { value, networkEnvironment in 
 				try await post(...)
@@ -77,7 +77,7 @@ extension PersistenceEnvironment {
 		.init(
 			userPreference1: .userDefaults(.userPreference1),
 			userPreference2: .userDefaults(.userPreference2), 
-			networkPreference: .network(“preference”)
+			networkPreference: .network("preference")
 		)
 	}
 }
@@ -89,7 +89,7 @@ Finally you can use these stores to read and write your values:
 let environment = PersistenceEnvironment.live
 
 var storedPreference1 = try await environment.userPreference1.load()
-storedPreference1 += “!”
+storedPreference1 += "!"
 try await environment.userPreference1.save(storedPreference1)
 ```
 
