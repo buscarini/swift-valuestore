@@ -105,4 +105,4 @@ The documentation for releases and main are available here:
 
 This library is released under the MIT license. See [LICENSE](LICENSE) for details.
 
-[swift-valuestore-docs]: https://buscarini.github.io/swift-valuestore
+[swift-valuestore-docs]: https://github.com/buscarini/swift-valuestore/wiki
