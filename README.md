@@ -43,9 +43,9 @@ This way the compiler will ensure that all keys are unique. Now we need to creat
 
 ```swift
 extension ValueStore {
-    static func userDefaults(_ key: UserDefaultsKey) -> Self {
-        .unsafeRawUserDefaults(key.rawValue)
-    }
+	static func userDefaults(_ key: UserDefaultsKey) -> Self {
+		 .unsafeRawUserDefaults(key.rawValue)
+	 }
 }
 ```
 
@@ -53,19 +53,19 @@ You can also have other implementations that store the value using an endpoint, 
 
 ```swift
 extension ValueStore where Environment == NetworkEnvironment {
-    static func network(_ endpoint: String) -> Self {
-        .init(
-            load: { networkEnvironment in
-                try await get(...)
-            },
-            save: { value, networkEnvironment in 
-                try await post(...)
-            },
-            remove: { networkEnvironment in 
-                try await delete(...)
-            }
-        )
-    }
+	static func network(_ endpoint: String) -> Self {
+		.init(
+			load: { networkEnvironment in
+					try await get(...)
+			},
+			save: { value, networkEnvironment in 
+				try await post(...)
+			},
+			remove: { networkEnvironment in 
+				try await delete(...)
+			}
+		)
+	}
 }
 ```
 
